@@ -1,0 +1,13 @@
+<div class="dropdown" style="top:-25px">                    
+                        <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="
+background-color: white; color: black">
+                           Sort By
+                        </button>                      
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/products/moreProducts/{{dog_cate._id}}">For Dogs</a>
+                                <a class="dropdown-item" href="/products/moreProducts/{{cat_cate._id}}">For Cats</a>
+                                <a class="dropdown-item" href="/products/moreProducts/{{other_cate._id}}">Others</a>
+                                <a class="dropdown-item {{#if lowtoHigh}} active {{/if}}" href="/products/sortprice?sort=lowtoHigh">Price Low to High</a>
+                                <a class="dropdown-item {{#if hightoLow}} active {{/if}}" href="/products/sortprice?sort=hightoLow">Price High To Low</a> 
+                        </div>
+</div>

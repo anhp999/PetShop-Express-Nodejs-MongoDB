@@ -1,0 +1,60 @@
+<section class="hero">
+        <div class="container">
+            <div class="row">
+                {{> category}}
+               <div class="col-lg-9">
+                   {{#with subcategoryId}}
+                    <div class="hero__search">
+                        <h2>{{title}}</h2>
+                    </div>                     
+                    {{/with}}
+                    {{> sortSubCate}} 
+                    {{#if subproductIdLTH}}
+                    <div class="row featured__filter">
+                        {{#each subproductIdLTH}}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg"><a href="/products/product-details/{{_id}}"><img src="{{img}}" style="width:200px; height:160px"></a>
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a href="#"><i class="bi bi-suit-heart" style="margin-left: 1px;top: 1px;"></i></a></li>
+                                        <li><a href="/cart-test/{{_id}}"><i class="bi bi-bag-plus-fill" style="margin-left: 0px;top: -2px;"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6><a href="/products/product-details/{{_id}}">{{name}}</a></h6>
+                                    <h5>${{price}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <p>Don't have products here.</p>
+                        {{/each}}
+                    </div>
+                    {{else}}
+                        {{#if subproductIdHTL}}
+                            <div class="row featured__filter">
+                        {{#each subproductIdHTL}}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg"><a href="/products/product-details/{{_id}}"><img src="{{img}}" style="width:200px; height:160px"></a>
+                                    <ul class="featured__item__pic__hover">
+                                        <li><a href="#"><i class="bi bi-suit-heart" style="margin-left: 1px;top: 1px;"></i></a></li>
+                                        <li><a href="/cart-test/{{_id}}"><i class="bi bi-bag-plus-fill" style="margin-left: 0px;top: -2px;"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6><a href="/products/product-details/{{_id}}">{{name}}</a></h6>
+                                    <h5>${{price}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <p>Don't have products here.</p>
+                        {{/each}}
+                        </div>
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+</section>

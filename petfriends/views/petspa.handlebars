@@ -1,0 +1,50 @@
+<section class="u-align-left u-clearfix u-section-1" id="sec-7edf">
+  {{#if message}}
+    <div class="alert alert-{{message.type}}" id="success-alert3" style="top: -23px;">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>{{message.intro}}! </strong> {{message.message}}.
+    </div>
+    {{/if}}
+    <div class="example">
+      <img src="https://www.shinypet.vn/uploads/tiny_uploads/89807512_621528628688771_4747630778546913280_o.jpg" style="margin-left: -74px;margin-top: 73px;" ></div>   
+    
+      <h2 class="u-text u-text-1">Visit us or <b>call us today</b>
+      </h2>
+      <div class="u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-24 u-layout-cell-1">
+              <div class="u-container-layout u-valign-top u-container-layout-1">
+                <h3 class="u-text u-text-2">Opening <b>Hours</b>
+                </h3>
+                <p class="u-text u-text-3">Tues - Thurs: 9am - 5pm<br>Fri: 9am - 7pm / Sat: 8am - 4pm <br>Sun - Mon: Closed
+                </p>
+                <p class="u-text u-text-4">
+                  Contact us at <a class="u-active-none u-border-2 u-border-palette-1-base u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1" href="mailto:anhhnpgcs190288@fpt.edu.vn">anhhnpgcs190288@fpt.edu.vn</a> to take booking
+                </p>
+                <div class="u-expanded-width u-form u-form-1">
+                  <form action="/booking/services" method="POST" class="u-block-d423-15 u-form-spacing-31 u-form-vertical u-inner-form" source="email">
+                    <input type="hidden" id="siteId" name="siteId" value="1391304">
+                    <input type="hidden" id="pageId" name="pageId" value="1391305">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-border border-width-2" id="exampleInputBorderWidth2" placeholder="Name" name ="name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email"  class="form-control form-control-border border-width-2" id="email-10f5" placeholder="Email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Message" class="form-control form-control-border border-width-2" id="message-10f5" name="message"  required></textarea>
+                    </div>
+                    {{!-- <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+                    <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div> --}}
+                    <div class="form-group u-form-submit">                      
+                      <button type="submit" class="btn btn-block btn-dark btn-lg" >Send</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

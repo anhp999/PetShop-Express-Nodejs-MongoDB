@@ -1,0 +1,105 @@
+<div class="main">
+    <div class="content">
+    	<div class="content_top">
+    		<div class="heading" style="margin-bottom: -36px;">
+    		<h3>Dogs</h3>
+    		</div>
+    		<div class="see">
+    			<p><a href="/products">See all Products <strong>>></strong></a></p>
+    		</div>
+    		<div class="clear"></div>
+    	</div>
+	      <div class="section group">
+			
+				{{#each dogs}}
+					<div class="grid_1_of_4 images_1_of_4">
+						
+						{{!-- <a href="#"><img src="./dogfood1.jpg" alt="" /></a> --}}
+						<a href="/products/product-details/{{_id}}"><img src={{img}} style="width:200px; height:250px"></a>
+						<h2>{{name}} </h2>
+						<div class="price-details">
+						<div class="price-number">
+								<p><span class="rupees">${{price}}</span></p>
+							</div>						
+							<div class="add-cart">								
+										{{!-- <button type="submit">Add to Cart</button> --}}
+								<h4><a href="/cart-test/{{_id}}" role="button">Add to Cart</a></h4>
+							</div>
+							<div class="clear"></div>						
+						</div>		 
+					</div>
+				{{/each}}
+			
+			</form>
+			</div>
+			<div class="content_bottom">
+    		<div class="heading" style="margin-bottom: -36px;">
+    		<h3>Cats</h3>
+    		</div>
+    		<div class="see">
+    			<p><a href="/products">See all Products <strong>>></strong></a></p>
+    		</div>
+    		<div class="clear"></div>
+    	</div>
+			<div class="section group">
+			{{#each cats}}
+				<div class="grid_1_of_4 images_1_of_4">
+					 <a href="/products/product-details/{{_id}}"><img src={{img}} style="width:200px; height:210px"/></a>					
+					 <h2>{{name}}</h2>
+					<div class="price-details">
+				       <div class="price-number">
+							<p><span class="rupees">${{price}}</span></p>
+					    </div>
+					       		<div class="add-cart">		
+									   {{!-- data-id: lưu sản phẩm user đã add --}}
+									{{!-- <h4><a href="#" class="add-to-cart" data-id="{{_id}}">Add to Cart</a></h4> --}}
+									 <h4><a href="/cart-test/{{_id}}" >Add to Cart</a></h4>
+							     </div>
+							 <div class="clear"></div>
+					</div>
+				</div>
+			{{/each}}
+			</div>
+    </div>
+ </div>
+ <section class="services spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-car"></i>
+                    <h6>Free Shipping</h6>
+                    <p>For all order over $50</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-money"></i>
+                    <h6>Money Back Guarantee</h6>
+                    <p>If good have Problems</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-support"></i>
+                    <h6>Online Support 24/7</h6>
+                    <p>Dedicated support</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-headphones"></i>
+                    <h6>Payment Secure</h6>
+                    <p>100% secure payment</p>
+                </div>
+            </div>
+        </div>		
+	</div>
+    </div>
+</section>
+
+{{!-- <div class="jumbotron text-center">
+    <h1>Post</h1>
+    <p>Post Easy</p>
+    <a href="/posts/add" class="btn btn-dark btn-lg">Create New</a>
+</div> --}}

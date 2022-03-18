@@ -1,0 +1,65 @@
+<div class="col-lg-3">
+    <div class="hero__categories">
+        <div class="hero__categories__all">
+            <ol class="breadcrumb" style="background-color: white;" >
+                <li class="breadcrumb-item"><a href="/"><small>Home</small></a></li>
+                <li class="breadcrumb-item active"><small>View All</small></li>
+             </ol>
+        </div>
+        <div>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="/products" class="nav-link">
+                        <p>View All</p>
+                    </a>
+                </li>
+                {{!-- {{#each categories}}
+                 <li class="nav-item menu-open">
+                    <a href="/products/moreProducts/{{_id}}" class="nav-link">
+                        <i class="nav-icon fas fa-solid fa-dog"></i>
+                        <p>{{title}}<i class="right fas fa-angle-left" style="right: -1rem;"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                    {{#each this.subCategory}} 
+                    <li class="nav-item active"><a href="/products/subCategory/{{_id}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>{{title}}</p></a></li>
+                    {{/each}}  
+                    </ul>
+                </li>
+                {{/each}} --}}
+                {<li class="nav-item menu-open">
+                    <a href="/products/moreProducts/{{dog_cate._id}}" class="nav-link">
+                        <i class="nav-icon fas fa-solid fa-dog"></i>
+                        <p>{{dog_cate.title}}<i class="right fas fa-angle-left" style="right: -1rem;"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                    {{#each dog_subcate}} 
+                    <li class="nav-item active"><a href="/products/subCategory/{{_id}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>{{title}}</p></a></li>
+                    {{/each}}  
+                    </ul>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="/products/moreProducts/{{cat_cate.id}}" class="nav-link">
+                        <i class="nav-icon fas fa-solid fa-cat"></i>
+                        <p>{{cat_cate.title}}<i class="right fas fa-angle-left" style="right: -1rem;"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                    {{#each cat_subcate}}
+                    <li class="nav-item active"><a href="/products/subCategory/{{_id}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>{{title}}</p></a></li>
+                    {{/each}}                        
+                    </ul>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="/products/moreProducts/{{other_cate._id}}" class="nav-link">
+                        <i class="nav-icon fas fa-solid fa-paw"></i>
+                        <p>{{other_cate.title}}<i class="right fas fa-angle-left" style="right: 30px;"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                    {{#each other_subcate}}
+                    <li class="nav-item active"><a href="/products/subCategory/{{_id}}" class="nav-link"><i class="far fa-circle nav-icon"></i><p>{{title}}</p></a></li>
+                    {{/each}}                        
+                    </ul>
+                </li>
+            </ul>             
+        </div>
+    </div>
+</div>         

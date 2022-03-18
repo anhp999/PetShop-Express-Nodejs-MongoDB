@@ -1,0 +1,49 @@
+ <link rel="stylesheet" href="/static/css/style-boxshop.css" type="text/css">
+
+<div class="body-content"style="top: 66px;">
+  {{#if getMessage}}
+	<div class="container">
+		<div class="my-wishlist-page">
+			<div class="row">
+				<div class="col-md-12 my-wishlist">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th colspan="4" class="heading-title">Booking Services</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each getMessage}}
+                <tr>
+                  <td class="col-md-2">{{name}}</td>
+                  <td class="col-md-7">
+                    <div class="product-name"><a href="#">{{email}}</a></div>
+                  </td>
+                  <td class="col-md-7">
+                    <div class="product-name"><a href="#">{{message}}</a></div>
+                  </td>
+                  <td class="col-md-1 close-btn">
+                    <form action="/wishlist/delete/{{_id}}?_method=DELETE" method="POST">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <input type="submit" value="Remove" class="btn btn-danger btn-block">
+                  </form>
+                  </td>                 
+                </tr>         
+                {{/each}}       
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>    
+    </div> 
+    {{else}}
+    <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <h2>No Booking Right Now</h2>
+            </div>   
+    </div>
+    {{/if}}
+</div>
+	

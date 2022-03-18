@@ -1,0 +1,134 @@
+<div class="hero__categories__all">
+    <ol class="breadcrumb" style="background-color: white;" >
+    </ol>
+</div>
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">                
+                <div class="col-lg-6">
+                   <div class="container-slide">
+                       {{#each prodetailImg}}
+                            {{#if img}}
+                                <div class="mySlides">
+                                    <img src={{img}} style="width: 51%;margin-left: 144px;">
+                                </div>
+                            {{else}}
+                                {{#if imgPath}}
+                                    <div class="mySlides">
+                                        <img src='data:{{imgPath.contentType}};base64,{{imgPath.imageBase64}}' style="width: 51%;margin-left: 144px;">
+                                    </div>
+                                {{/if}}
+                            {{/if}}
+                        {{/each}}
+                        {{#each prodimg}}
+                            {{#if imageBase64}}
+                                <div class="mySlides">
+                                    <img src='data:{{contentType}};base64,{{imageBase64}}' style="width: 51%;margin-left: 144px;">
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                        {{!-- <div class="mySlides">
+                            <img src="/static/images/product2.jpg" style="width: 51%;margin-left: 144px;">
+                        </div> --}}
+
+                        <a class="prev-slide" onclick="plusSlides(-1)">❮</a>
+                        <a class="next-slide" onclick="plusSlides(1)">❯</a>
+                    </div>
+                    <div class="row-slide">
+                        {{#each prodetailImg}}
+                            {{#if img}}
+                                <div class="column-slide">
+                                    <img class="demo cursor" src={{img}} style="width:100%" onclick="currentSlide(1)" alt="">
+                                </div>
+                            {{else}}
+                                {{#if imgPath}}
+                                    <div class="column-slide">
+                                        <img class="demo cursor" src='data:{{imgPath.contentType}};base64,{{imgPath.imageBase64}}' style="width:100%" onclick="currentSlide(1)" alt="">
+                                    </div>
+                                {{/if}}
+                            {{/if}}
+                        {{/each}}
+                        {{#each prodimg}}
+                            {{#if imageBase64}}
+                                <div class="column-slide">
+                                    <img class="demo cursor" src='data:{{contentType}};base64,{{imageBase64}}' style="width:100%" onclick="currentSlide(1{{_id}})" alt="">
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                       {{!--  <div class="column-slide">
+                            <img class="demo cursor" src="/static/images/product2.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                        </div> --}}
+                    </div>
+                </div>
+        
+            {{#with prodetail}}
+                <div class="col-lg-6">
+                    <div class="product__details__text">
+                        <h3>{{name}}</h3>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <span>( 138 reviews )</span>
+                        </div>
+                        <div class="product__details__price" id="price{{_id}}">$ {{price}}</div>
+                        <p>{{desc}}</p>
+                        <div class="product__details__button">
+                            <div class="quantity">
+                                <span>Quantity:</span>
+                                <div class="pro-qty">
+                                    <div>
+                                        <button class="minus-btn1" data-id="{{_id}}" style="float: left;width: 40px;height: 35px;margin-top: 7px;border: 1px solid rgba(0,0,0,.09);"><i class="bi bi-dash-lg" style="margin-left: 0;"></i></button>
+                                        <input id="qties{{_id}}" type="text" value="1" readonly>                                  
+                                        <button  class="plus-btn1" data-id="{{_id}}" style="width: 40px;height: 35px;margin-top: 7px;margin-right: 37px;border: 1px solid rgba(0,0,0,.09);"><i class="bi bi-plus-lg" style="margin-left: 0;"></i></button>                                     
+                                    </div>
+                                </div>
+                            </div>                        
+                        </div>
+                         <div  class="product__details__button">
+                            {{!-- <button type="submit"><span class="icon_bag_alt"></span> Add to cart</button> --}}
+                            <a href="#" data-id="{{_id}}" class="cart-btn addwithQuantities"><span class="icon_bag_alt"></span> Add to cart</a>
+                            {{!-- <a href="/cart-test/addwithQuantities/{{_id}}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a> --}}
+                            {{!-- <a href="#" class="btn-icon"><i class="fa-regular fa-heart"></i></a> --}}
+                            <button type="submit" class="add-to-wish-list" data-id="{{_id}}" value="{{price}}" ><i class="fa-solid fa-heart" style="margin-left: 1px;top: 1px;"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item" style="margin-right: 28px;">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>
+                            </li>
+                            <li class="nav-item" style="margin-left: 38px;">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Reviews ( 2 )</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <h6>Description</h6>
+                                <p>{{desc}}</p>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <h6>Reviews ( 2 )</h6>
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
+                                    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
+                                    Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
+                                    voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
+                                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
+                                consequat massa quis enim.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                                    dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                                    nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                                quis, sem.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/with}}
+            </div>
+        </div>
+    </section>

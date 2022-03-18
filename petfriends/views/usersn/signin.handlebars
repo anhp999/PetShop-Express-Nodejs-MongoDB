@@ -1,0 +1,44 @@
+<div id="regisign" class="paddinglogin padmarlogin hide">
+    <div class="row">
+        <div class="colsnleft col3">
+            {{#if message}}
+                    <div class="alert alert-{{message.type}}" id="success-alert2" style="top: -23px;">
+                        <button type="button" class="close" data-dismiss="alert" style="margin-top: -3px;">x</button>
+                        <strong>{{message.intro}}! </strong> {{message.message}}.
+                    </div>
+                    {{/if}} 
+                <div class="sign-in">
+                    <h4>Sign In</h4>                            
+                        <form action="/usersn/signin" name="signin" method="POST" >
+                            <div class="space">                                
+                                <label for="Email"><b>Email</b></label>
+                                <input type="text" placeholder="Enter Email" name="email" required >
+                                {{#if hasErrors}} 
+                                <p style="color:red">{{messages.[0]}}</p>
+                                {{/if}}                                    
+                            </div>
+                            <div class="space">
+                                <label for="password"><b>Password</b></label>
+                                <input type="password" placeholder="Enter Password" name="password" required>
+                                {{#if hasErrors}} 
+                                <p style="color:red">{{messages.[1]}}</p>
+                                {{/if}}
+                            </div>                            
+                            <div class="emailinput" >
+                                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                    <button type="submit">Login</button>
+                                <label><input type="checkbox" checked="checked" name="remember"> Remember me</label>                                
+                                <span class="psw"><a href="#" style="float: right;">Forgot Password? </a></span>
+                            </div>
+                       
+                        </form>   
+                        <p style="margin-left: 141px">Or</p>
+                    <div>
+                        <span>Don't have an account ? <a href="/usersn/signup" >Register Here</a></span>
+                    </div>
+
+                </div>
+        </div>
+        {{!-- <div class="col1 signinrb"></div> --}}            
+    </div>    
+</div>

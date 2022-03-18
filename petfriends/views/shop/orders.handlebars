@@ -1,0 +1,71 @@
+<div class="hero__categories__all breadcrumb_pos">
+    <ol class="breadcrumb" style="background-color: white;" >
+        <li class="breadcrumb-item"><a href="/"><small>Home</small></a></li>
+        <li class="breadcrumb-item"><a href="/cart"><small>My Shopping Cart</small></a></li>
+        <li class="breadcrumb-item active"><small>My Order</small></li>
+    </ol>
+</div>
+<section class="checkout spad sec_body"> 
+        <div class="container">
+            <form action="/shop" method="post" class="checkout__form">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h5>Shipping Detail</h5>                        
+                            <div class="row">                            
+                                <div class="col-lg-12">                            
+                                    <div class="checkout__form__input">
+                                        <p>Address <span>*</span></p>
+                                        <input type="text" id="address" placeholder="Delivery Address" required name="address" value="{{address}}">
+                                    </div>                               
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="checkout__form__input">
+                                        <p>Phone{{phone}} <span>*</span></p>
+                                        <input type="text" id="phone" required name="phone">
+                                    </div>
+                                </div>
+                                <h5>Payment Method</h5>
+                                <div class="checkout__order__widget">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="cod-payment" value="COD{{paymentMethod}}" required >
+                                        <label class="form-check-label" for="cod-payment">Pay By Cash On Delivery (COD)<i class="bi bi-cash" style="margin-left: 7px"></i></label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="Paypal{{paymentMethod}}"> 
+                                        <label class="form-check-label" for="paypal">Pay With Paypal<i class="bi bi-paypal" style="margin-left: 7px"></i></label>
+                                        
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="check-payment" value="CreditCard{{paymentMethod}}">
+                                        <label class="form-check-label" for="check-payment">Pay With Credit/Debit Card<i class="bi bi-credit-card-fill"style="margin-left: 7px"></i></label>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="checkout__order">
+                            <h5>Your order</h5>
+                                <div class="checkout__order__product">
+                                    <ul>
+                                        <li>
+                                            <span class="top__text">Product</span>
+                                            <span class="top__text__right">Total</span>
+                                        </li>
+                                         {{#each products}}
+                                        <li><strong>x {{this.quantity}}</strong> {{this.item.name}} <span>$ {{this.Total}}</span></li>
+                                         {{/each}}
+                                    </ul>
+                                </div>
+                                <div class="checkout__order__total">
+                                    <ul>
+                                        <li>Total <span>$ {{getTotalPrice}}</span></li>
+                                    </ul>
+                                </div>                                
+                                <button type="submit" class="site-btn">Checkout</button>
+                            </div>
+                        </div>    
+                    </div>
+            </form>
+        </div>
+</section>

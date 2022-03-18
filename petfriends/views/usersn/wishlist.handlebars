@@ -1,0 +1,58 @@
+ <link rel="stylesheet" href="/static/css/style-boxshop.css" type="text/css">
+<div class="hero__categories__all">
+    <ol class="breadcrumb" style="background-color: white;" >
+        <li class="breadcrumb-item"><a href="/"><small>Home</small></a></li>
+        <li class="breadcrumb-item active"><small>My Wish List</small></li>
+    </ol>
+</div>
+
+<div class="body-content">
+  {{#if wishlistItem}}
+	<div class="container">
+		<div class="my-wishlist-page">
+			<div class="row">
+				<div class="col-md-12 my-wishlist">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th colspan="4" class="heading-title">My Wish List</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each wishlistItem}}
+                <tr>
+                  <td class="col-md-2"><img src="{{productId.img}}" alt="imga"></td>
+                  <td class="col-md-7">
+                    <div class="product-name"><a href="#">{{productId.name}}</a></div>
+                    <div class="price">
+                      $ {{price}}
+                    </div>
+                  </td>
+                  <td class="col-md-2">
+                    <a href="/cart-test/{{productId._id}}" class="btn-upper btn btn-primary" style="background-color: #5ce1ce;border: none;">Add to cart</a>
+                  </td>
+                  <td class="col-md-1 close-btn">
+                    <form action="/wishlist/delete/{{_id}}?_method=DELETE" method="POST">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <input type="submit" value="Remove" class="btn btn-danger btn-block">
+                  </form>
+                  </td>                 
+                </tr>         
+                {{/each}}       
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>    
+    </div> 
+    {{else}}
+    <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <h2>No Items In WishList</h2>
+            </div>   
+    </div>
+    {{/if}}
+</div>
+	

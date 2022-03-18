@@ -1,0 +1,74 @@
+<div class="card" style="width: 862px;">
+                <div class="card-header ui-sortable-handle">
+                <h3 class="card-title" style="font-size: 14px;margin-top: 10px;">
+                <a href="/admin?sort=all" style="color: blue;"><i class="ion ion-clipboard mr-1"></i> View All ></a>
+                </h3>
+                <h3 class="card-title" style="font-size: 14px;margin-top: 10px;">
+                <i class="ion ion-clipboard mr-1"></i> <strong>View {{categoryId.title}}</strong>
+                </h3>
+                <div class="card-tools" style="height: 35px;">
+                  <div class="input-group mb-3" style="left: -420px;">
+                    <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By</button>
+                    <div class="dropdown-menu">
+                      {{!-- <a class="dropdown-item" href="/admin/adminCate/{{dog_cate._id}}">Dogs</a>
+                      <a class="dropdown-item" href="/admin/adminCate/{{cat_cate._id}}">Cats</a>
+                      <a class="dropdown-item" href="/admin/adminCate/{{other_cate._id}}">Others</a> --}}
+                      {{#each categories}}
+                      <a class="dropdown-item" href="/admin/adminCate/{{this._id}}?sort=category">{{this.title}}</a>
+                      {{/each}}
+                    </div>
+                  </div>
+                    <input type="hidden" id="{{categoryId._id}}" name="searchCate" class="form-control" onkeyup="showSearchResultsCate(this)" placeholder="Search product here..." style="height: 38px;">                    
+                 </div>
+                 {{!-- <div class="input-group mb-3" style="top: -41px;left: 161px;">
+                    <ul class="pagination pagination-sm">
+                      <li class="page-item"><a href="#" class="page-link">«</a></li>
+                      <li class="page-item"><a href="#" class="page-link">1</a></li>
+                      <li class="page-item"><a href="#" class="page-link">2</a></li>
+                      <li class="page-item"><a href="#" class="page-link">3</a></li>
+                      <li class="page-item"><a href="#" class="page-link">»</a></li>
+                    </ul>
+                 </div>   --}}                
+                </div>
+              </div>
+
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table m-0">
+                      <thead>
+                        <tr>
+                          <th><h4 style="margin-right: 58px">Image</h4></th>
+                          <th><h4 style="margin-right: 14px">Product</h4></th>
+                          <th><h4 style="margin-left: -7px;">Price</h4></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                    <tbody id="showSearchCate"></tbody>
+                    <tbody id="searchCate">                    
+                      {{#each productCate}}
+                        <tr>
+                          <td style="width: 178px;"><img style="width: 110px;height: 132px;" src={{img}}></td>
+                          <td style="width: 228px;"><p style="margin-top: 48px;margin-left: 61px;">{{name}}</p></td>
+                          <td><span class="badge badge-success"style="background-color:#FF6347;margin-top: 52px;margin-left: 114px;">${{price}}</span></td>
+                          <td>
+                            <div class="tools" style="bottom: -15px;">
+                              {{!-- <i class="fas fa-edit facolor"></i> --}}
+                              <a href="/admin/edit/{{_id}}" class="btn btn-dark btn-block mb-2">Edit</a>
+                              <form action="/admin/{{_id}}?_method=DELETE" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                               <input type="submit" value="Delete" class="btn btn-danger btn-block">
+                              </form>
+                              {{!-- <a href="/admin/removeItem/{{_id}}"></a> --}}
+                            </div>
+                          </td>
+                        </tr>
+                      {{/each}}                       
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+                <div class="card-footer clearfix">
+                <button type="button" class="btn btn-primary float-right color-hover" ><i class="fas fa-plus"></i> Add item</button>
+                </div>
+              </div>

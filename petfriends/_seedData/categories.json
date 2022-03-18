@@ -1,0 +1,20 @@
+[
+    {
+      "_id": "5d725a4a7b292f5f8ceff789",
+      "title": "Dogs",
+      "description": "This is dog category",
+      "subcategory": ["6209b9ddcf142dd072e6c6da", "6209ba045193dfb31c74163c",  "6209ba0b6a791f73438fc4df"]
+    },       
+    {
+      "_id": "5d725c84c4ded7bcb480eaa0",
+      "title": "Cats",
+      "description": "This is cat category",
+      "subcategory": ["6209ba10502f4b88aa73d81e", "6209ba17a2a71e5469289066", "6209ba1b3acc2678e3d15d41"]
+    },
+    {
+      "_id": "5d725cb9c4ded7bcb480eaa1",
+      "title": "Others Pet",
+      "description": "This is other pets category",
+      "subcategory": [ "6209ba22f39a899522563f90","6209ba285d8d2eb91af11dd4"]
+    }
+  ]

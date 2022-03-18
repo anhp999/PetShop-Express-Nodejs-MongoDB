@@ -1,0 +1,53 @@
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <h3 style="margin-left: 34px; margin-top: 12px;">{{orderdetails.user.email}}'s order</h3>        
+            <div class="col-md-9" style="left: 118px; top: 17px;">
+                <div class="shop__cart__table">
+                    <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each orderdetails.items}} 
+                                <tr>
+                                    <td class="cart__product__item1">
+                                        <img src="{{item.img}}" style="width: 120px;"alt="">
+                                    </td>
+                                    <td
+                                        <div class="cart__product__item__title" style="left: 70px;bottom: -58px;">
+                                            <h6>{{item.name}}</h6>                                            
+                                        </div>
+                                    </td>
+                                    <td class="cart__quantity">
+                                         <strong style="margin-left: 48px;">{{quantity}}</strong> 
+                                    </td>
+                                    <td class="cart__price oldPri"><strong style="margin-left: 10px;">${{price}}</strong></td>
+                                    <td class="cart__total"><strong style="margin-left: 10px;">${{Total}}</strong></td>                            
+                                </tr> 
+                                {{/each}}
+                            </tbody>
+                    </table>
+                </div>
+        </div>
+            
+            <div class="col-lg-4 offset-lg-2" style=" margin-left: 66.666667%;">
+                <div class="cart__total__procced1">
+                    <h6>Cart total</h6>
+                    <ul>
+                        <li> Payment Method<span id="totalMethod">{{orderdetails.paymentMethod}}</span></li>
+                        <li>Address <span id="addressDetail">{{orderdetails.address}}</span></li>
+                        <li>Phone <span id="PhoneDetail">{{orderdetails.phone}}</span></li>
+                        <li>Total Products <span id="totalQty"> {{orderdetails.cart.totalQuantity}}</span></li>
+                        <li>Total Price <span id="totalPr">$ {{orderdetails.cart.totalPrice}}</span></li>                            
+                    </ul>                      
+                </div>
+            </div>
+    </div>
+</section>

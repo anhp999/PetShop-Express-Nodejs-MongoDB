@@ -1,0 +1,52 @@
+<section class="hero">
+    <div class="container">
+        <div class="row">
+                {{> category}}
+               <div class="col-lg-9">
+                   {{#if message}}
+                    <div class="alert alert-{{message.type}}" id="success-alert4" style="top: -23px;">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        <strong>{{message.intro}}! </strong> {{message.message}}.
+                    </div>
+                    {{/if}}
+                    <div class="hero__search">                       
+                        <h2>New Arrivals</h2>                        
+                    </div>                    
+                    {{> sort}}
+                    
+                        <div class="row featured__filter">                                              
+                            {{#each allProducts}}
+                            {{!-- <form action="/wishlist" method="POST"> --}}
+                                {{!-- <form action="/wishlist/product/add" method="post"> --}}
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg"><a href="/products/product-details/{{_id}}"><img src={{img}} style="width:200px; height:160px"></a>
+                                            <ul class="featured__item__pic__hover">                                        
+                                                <li><button type="submit" class="add-to-wish-list" data-id="{{_id}}" value="{{price}}"style="border: none;border-radius: 2rem;"><a><i class="fa-solid fa-heart" style="margin-left: 1px;top: 1px;"></i></a></button>
+                                                {{!--  {{#if isWish}}<i class="a-solid fa-heart" style="margin-left: 1px;top: 1px;"></i>
+                                                        {{else}}
+                                                            <i class="fa-regular fa-heart" style="margin-left: 1px;top: 1px;"></i>
+                                                        {{/if}}
+                                                    --}}
+                                                </li>
+                                                {{!--<li><a href="/wishlist/{{_id}}"><i class="bi bi-suit-heart" style="margin-left: 1px;top: 1px;"></i></a></li>   --}}
+                                            {{!-- <li><a href="/wishlist/{{_id}}" ><i class="bi bi-suit-heart" style="margin-left: 1px;top: 1px;"></i></a></li> --}}
+                                                <li><a href="/cart-test/{{_id}}"><i class="bi bi-bag-plus-fill" style="margin-left: 0px;top: -2px;"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="featured__item__text">
+                                            <h6><a href="/products/product-details/{{_id}}">{{name}}</a></h6>
+                                            <h5>${{price}}</h5>
+                                        </div>  
+                                    </div>
+                                </div>
+                                {{!-- </form>  --}}
+                            {{!-- </form> --}}
+                            {{/each}} 
+                           
+                                                  
+                        </div>                 
+                </div>
+        </div>
+    </div>
+</section>

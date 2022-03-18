@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="title py-5">
+        <h3 style="margin-left: 430px;">Add New Product</h3>              
+    </div>
+    {{#if message}}
+    <div class="alert alert-{{message.type}}" id="success-alert" style="top: -23px;">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>{{message.intro}}! </strong> {{message.message}}.
+    </div>
+    {{/if}}
+
+    <form action="/admin" method="post" enctype="multipart/form-data"> 
+        <div class="col-md-6">
+            <div class="card card-body" style="left: 270px;">            
+                    <div class="col">
+                        <label for="name">Product Name </label>
+                        <input type="text" class="form-control" id="inputname" name="name" required value="{{name}}">
+                    </div>
+                    <div class="col">
+                        <label for="desc">Description</label>
+                        <textarea class="form-control" name="desc" id="inputdesc" required value="{{desc}}">{{desc}}</textarea>
+                    </div>
+                    <div class="col">
+                        <label for="price">Price</label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>           
+                        <input type="text" id="inputprice" class="form-control" style="margin-left: 36px;margin-top: -37px;width: 388px;" aria-label="Amount (to the nearest dollar)" name="price" required value="{{price}}">
+                    </div> 
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="allCategory">Category</label>
+                        </div>
+                        <select class="custom-select" id="allCategory" name="categoryid">
+                            <option value="0">Choose Category</option>                             
+                            {{#each categoryid}}                                
+                            <option value="{{_id}}">{{title}}</option>                                
+                            {{/each}}                            
+                        </select>
+                    </div> 
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="allsubCategory">SubCategory</label>
+                        </div>
+                        <select class="custom-select" id="allsubCategory" name="subcategoryid">
+                            <option name="" value="0" selected>Choose SubCategory</option>        
+                            {{#each subcategoryid}}
+                                <option value="{{_id}}" data-dep="{{category._id}}" >{{title}}</option>
+                            {{/each}}                
+                        </select>
+                    </div>    
+                    <div class="row">
+                        <div class="col-8">
+                            <input type="file" class="form-control" name="images" id="formFileNew">
+                        </div>                           
+                    </div>                   
+            
+                    <div class="row justify-content-center" style="left: 43px;top: 11px;">
+                        <div class="col-4">
+                            <a href="/admin" class="btn btn-secondary">Cancel</a>                
+                        </div>
+                        <div class="col-4">
+                            <input type="submit" class="btn btn-success" value="Create">            
+                        </div>
+                    </div>  
+            </div>        
+        </div>
+    </form> 
+</div>
+     {{!--  <a href="/" class="btn btn-warning">Cancel</a>
+     <button type="submit" class="btn btn-primary">Create</button> --}}
+    

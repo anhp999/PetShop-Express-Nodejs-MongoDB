@@ -1,0 +1,181 @@
+<section class="hero">
+        <div class="container">
+            <div class="row">
+                <h1 style="margin-left: 284px;">My Profile</h1>
+                <div class="col-lg-3">
+                    <div class="hero__categories">                        
+                        <div>
+                            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                                <li class="nav-item">
+                                    {{#if user}}
+                                    <a href="#" class="nav-link">
+                                        <p style="font-size: large;">Hi, {{user.email}}</p>
+                                    </a>
+                                    {{/if}}
+                                </li>
+                                <hr>
+                                <li class="nav-item">
+                                    <a href="/usersn/wishlist" class="nav-link" style="margin-left: 24px;">
+                                        <i class="nav-icon fa-solid fa-heart"></i>
+                                        <p>My Wish List</p>
+                                    </a>
+                                </li>
+                                <br>
+                                <li class="nav-item">
+                                    <a href="/usersn/logout" class="nav-link" style="margin-left: 24px;">
+                                        <i class="nav-icon fa-solid fa-right-from-bracket"></i>
+                                        <p>Log Out</p>
+                                    </a>
+                                </li>
+                            </ul>             
+                        </div>
+                    </div>
+                </div>         
+{{!-- this.cart.items.item. --}}
+               <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2" style="top: -41px;" >
+                <ul class="nav nav-pills" style="float: left; top: 40px;">
+                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">My Orders</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">My Wish List</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="activity" style="top: -37px;">
+                    <!-- Post -->
+                    {{#if orders}}
+                        {{#each orders}}
+                        <div class="post">
+                            <p>{{formatDate this.dateOfOrder "MM-DD-YYYY hh:mm:ss"}}</p>
+                            <div class="col item-pic col-1">
+                                <div id="carouselExampleControls{{this._id}}" class="carousel slide" data-ride="carousel" style="width: 108px;">
+                                <div class="carousel-inner"style="height: 99px;">
+                                    {{#each this.cart.items}}
+                                        {{#if @first}}  
+                                            <div class="carousel-item active">
+                                                <img class="d-block w-100" src="{{item.img}}" alt="{{item.name}}">
+                                            </div>
+                                        {{else}}
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="{{item.img}}" alt="{{item.name}}">
+                                            </div>
+                                        {{/if}}
+                                    {{/each}}
+                                    {{!-- <div class="carousel-item">
+                                    <img class="d-block w-100" src="/static/images/product3.jpg" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img class="d-block w-100" src="/static/images/product4.jpg" alt="Third slide">
+                                    </div>  --}}
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls{{this._id}}" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls{{this._id}}" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                                </div>
+                            </div>
+                            <div class="col col-2" style="float: right;top: -60px;right: 285px;"> 
+                                <strong style="margin-left: -9px;">Total Price: </strong><p style="margin-left: 77px;margin-top: -22px;"> ${{this.cart.totalPrice}}</p>
+                            </div><div class="col col-2" style="float: right;top: -60px;right: 346px;">
+                               <strong>Total Quantity: </strong>{{this.cart.totalQuantity}}
+                            </div>
+                            <div class="col col-3" style="float: right;top: -59px;left: 250px;">
+                            <a href="/usersn/orderdetail/{{this._id}}"> View Detail Order </a>
+                            </div>                
+                        </div>
+                        {{/each}}
+                    {{else}}
+                        <div >
+                            <p>You Have No Orders. <a href ="/" ><strong>Let explore with us.</strong> </a></p>
+                        </div>
+                    {{/if}}   
+                    <!-- /.post -->                 
+                </div>
+                  <!-- /.tab-pane -->
+                <div class="tab-pane" id="timeline" style="top: -41px;">
+                    <div class="viewed_title_container">
+                        <h3 class="viewed_title">Your Wishes</h3>
+                        <div class="viewed_nav_container">
+                            <p><a href="/usersn/wishlist">See all you want <strong>>></strong></a></p>
+							{{!-- <div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>
+							<div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div> --}}
+						</div> 
+                        <div class="see">        
+                                        
+                        </div>
+                    </div>
+    		        <div class="clear"></div>
+                    {{!-- {{#if showwishlist}} --}}
+                        <div class="section group">
+					    {{#each showwishlist}}
+                        <div class="grid_1_of_4 images_1_of_4" style="width: 20.8%;">
+						    <a href="/products/product-details/{{_id}}">
+                                <img src={{productId.img}} style="width:200px; height:186px">
+                            </a>
+                        </div>
+                        {{/each}}
+                        {{!-- <div class="grid_1_of_4 images_1_of_4" style="width: 20.8%;">
+						    <a href="/products/product-details/{{_id}}">
+                                <img src="/static/images/product5.jpg" style="width:200px; height:186px">
+                            </a>
+                        </div>
+                        <div class="grid_1_of_4 images_1_of_4" style="width: 20.8%;">
+						    <a href="/products/product-details/{{_id}}">
+                                <img src="/static/images/product5.jpg" style="width:200px; height:186px">
+                            </a>
+                        </div>
+                        <div class="grid_1_of_4 images_1_of_4" style="width: 20.8%;">
+						    <a href="/products/product-details/{{_id}}">
+                                <img src="/static/images/product5.jpg" style="width:200px; height:186px">
+                            </a>
+                        </div> --}}
+                        </div>
+                    {{!-- {{else}} --}}
+                        {{!-- <div >
+                            <p>You Have No Wish. <a href ="/" ><strong>Let explore with us.</strong> </a></p>
+                        </div> --}}
+                    {{!-- {{/if}} --}}
+                </div>
+                  <!-- /.tab-pane -->
+                  
+                {{!-- Later --}}
+                {{!-- <div class="tab-pane" id="settings" style="top: -40px;">
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                        <div class="card bg-light">
+                            <div class="card-body pt-0">
+                            <div class="row">
+                                <h2 class="lead">
+                                <br>
+                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                    <br>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone: + 800 - 12 12 23 52</li>
+                                </ul>
+                                </h2>
+                            </div>
+                            </div>
+                            <div class="card-footer">
+                            <div class="text-right">
+                                <a href="#" class="btn btn-sm btn-primary">
+                               <i class="fa-solid fa-user-pen"></i> Edit Profile
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+            </div>
+        </div>
+</section>
